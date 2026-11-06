@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="ur">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Urdu Kahaniyan — Stories | اردو کہانیاں</title>
+    <meta name="description" content="Original short stories in Urdu with full English translations — read, enjoy, and take home a lesson from every tale." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #f7f2e7;
+        --surface: #fffdf6;
+        --ink: #22312a;
+        --ink-soft: #4c5a52;
+        --green: #175739;
+        --green-deep: #0f3d27;
+        --gold: #b07d1e;
+        --gold-soft: #e9d9ae;
+        --line: #ddd2ba;
+        --moral-bg: #eef4ec;
+        --shadow: 0 10px 28px rgba(34, 49, 42, 0.12);
+        --read-size: 1.3rem;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --paper: #111713;
+          --surface: #1b231e;
+          --ink: #ede7d7;
+          --ink-soft: #b9bfae;
+          --green: #8fceac;
+          --green-deep: #0c2a1c;
+          --gold: #e0b45c;
+          --gold-soft: #57471f;
+          --line: #33413a;
+          --moral-bg: #182720;
+          --shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+        }
+      }
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Lora", Georgia, serif;
+        line-height: 1.6;
+      }
+      .ur { font-family: "Noto Nastaliq Urdu", serif; }
+
+      /* ---------- Header ---------- */
+      .site-head {
+        background: var(--green-deep);
+        color: #f3ecd9;
+        text-align: center;
+        padding: 2.6rem 1.25rem 2.2rem;
+        border-bottom: 5px solid var(--gold);
+      }
+      .site-head h1 {
+        margin: 0;
+        font-family: "Noto Nastaliq Urdu", serif;
+        font-weight: 700;
+        font-size: clamp(2.6rem, 11vw, 4.2rem);
+        line-height: 1.9;
+        color: #f7efdb;
+      }
+      .site-head .subtitle {
+        margin: 0.4rem 0 0;
+        font-size: clamp(1rem, 4vw, 1.25rem);
+        letter-spacing: 0.04em;
+        color: var(--gold-soft);
+      }
+      .site-head .tagline-ur {
+        margin: 1rem auto 0;
+        max-width: 34rem;
+        font-family: "Noto Nastaliq Urdu", serif;
+        font-size: 1.05rem;
+        line-height: 2.3;
+        color: #e7dfc8;
+      }
+      .byline {
+        margin: 1.1rem 0 0;
+        font-size: 0.95rem;
+        font-style: italic;
+        color: #cfc39f;
+      }
+
+      main { max-width: 68rem; margin: 0 auto; padding: 1.6rem 1.1rem 3rem; }
+
+      .home-intro {
+        text-align: center;
+        max-width: 40rem;
+        margin: 0.4rem auto 1.8rem;
+        color: var(--ink-soft);
+      }
+      .home-intro .ur {
+        display: block;
+        font-size: 1.2rem;
+        line-height: 2.4;
+        color: var(--ink);
+        margin-bottom: 0.4rem;
+      }
+
+      /* ---------- Story cards ---------- */
+      .cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+      }
+      @media (min-width: 720px) {
+        .cards { grid-template-columns: repeat(3, 1fr); }
+      }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+        text-align: inherit;
+        padding: 0;
+        cursor: pointer;
+        font: inherit;
+        color: inherit;
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+      .card:hover, .card:focus-visible {
+        transform: translateY(-3px);
+        outline: 2px solid var(--gold);
+        outline-offset: 2px;
+      }
+      .card img {
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+        display: block;
+      }
+      .card-body { padding: 1.1rem 1.2rem 1.3rem; display: flex; flex-direction: column; gap: 0.55rem; flex: 1; }
+      .card-title-ur {
+        font-family: "Noto Nastaliq Urdu", serif;
+        font-weight: 700;
+        font-size: 1.65rem;
+        line-height: 2;
+        text-align: right;
+        margin: 0;
+      }
+      .card-title-en {
+        margin: 0;
+        font-size: 0.92rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 600;
+      }
+      .card-teaser {
+        margin: 0;
+        font-family: "Noto Nastaliq Urdu", serif;
+        font-size: 1.02rem;
+        line-height: 2.3;
+        text-align: right;
+        color: var(--ink-soft);
+        flex: 1;
+      }
+      .card-read {
+        margin-top: 0.4rem;
+        align-self: flex-start;
+        background: var(--green);
+        color: #fdf6e0;
+        border-radius: 999px;
+        padding: 0.5rem 1.15rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+      @media (prefers-color-scheme: dark) {
+        .card-read { color: #0f2417; }
+      }
+
+      /* ---------- Story view ---------- */
+      .story { max-width: 46rem; margin: 0 auto; }
+      .toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.2rem;
+      }
+      .btn {
+        font: inherit;
+        font-size: 0.95rem;
+        font-weight: 600;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--ink);
+        border-radius: 999px;
+        padding: 0.55rem 1.1rem;
+        cursor: pointer;
+      }
+      .btn:hover { border-color: var(--gold); }
+      .size-controls { display: flex; align-items: center; gap: 0.45rem; }
+      .size-controls span { font-size: 0.85rem; color: var(--ink-soft); }
+      .size-btn {
+        width: 2.4rem; height: 2.4rem;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--ink);
+        font-size: 1.05rem;
+        font-weight: 700;
+        cursor: pointer;
+        line-height: 1;
+      }
+      .size-btn:hover { border-color: var(--gold); }
+
+      .story-hero {
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        display: block;
+      }
+      .story-title-ur {
+        font-family: "Noto Nastaliq Urdu", serif;
+        font-weight: 700;
+        font-size: clamp(2rem, 8vw, 2.9rem);
+        line-height: 1.9;
+        text-align: center;
+        margin: 1.4rem 0 0.1rem;
+      }
+      .story-title-en {
+        text-align: center;
+        margin: 0 0 1.6rem;
+        font-size: 1rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 600;
+      }
+      .ur-body p, .en-body p {
+        font-size: var(--read-size);
+        margin: 0 0 1.15em;
+      }
+      .ur-body p {
+        font-family: "Noto Nastaliq Urdu", serif;
+        line-height: 2.45;
+        text-align: justify;
+      }
+      .en-body p { line-height: 1.85; }
+
+      .en-toggle {
+        width: 100%;
+        margin: 1.8rem 0 0;
+        font: inherit;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 0.85rem 1.2rem;
+        border-radius: 12px;
+        border: 1.5px solid var(--green);
+        background: transparent;
+        color: var(--green);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .en-toggle .chev { transition: transform 0.2s ease; }
+      .en-toggle[aria-expanded="true"] .chev { transform: rotate(180deg); }
+      .en-version { padding-top: 1.4rem; }
+      .en-version h3 {
+        margin: 0 0 1rem;
+        font-size: 1.3rem;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      .moral {
+        margin-top: 2.2rem;
+        background: var(--moral-bg);
+        border: 1.5px solid var(--gold);
+        border-radius: 14px;
+        padding: 1.3rem 1.4rem 1.1rem;
+        text-align: center;
+      }
+      .moral .moral-label {
+        font-size: 0.85rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-weight: 700;
+        margin: 0 0 0.5rem;
+      }
+      .moral .moral-ur {
+        font-family: "Noto Nastaliq Urdu", serif;
+        font-size: 1.3rem;
+        line-height: 2.4;
+        margin: 0 0 0.7rem;
+        font-weight: 600;
+      }
+      .moral .moral-en { margin: 0; font-size: 1.08rem; font-style: italic; }
+
+      .story-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.8rem;
+        margin-top: 2.2rem;
+        flex-wrap: wrap;
+      }
+
+      footer {
+        text-align: center;
+        padding: 1.6rem 1rem 2.4rem;
+        color: var(--ink-soft);
+        border-top: 1px solid var(--line);
+        max-width: 68rem;
+        margin: 0 auto;
+      }
+      footer .ur { font-size: 1.05rem; line-height: 2.2; display: block; }
+      footer .foot-by { font-style: italic; font-size: 0.92rem; }
+      [hidden] { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <header class="site-head">
+      <h1 dir="rtl" lang="ur">اردو کہانیاں</h1>
+      <p class="subtitle">Urdu Kahaniyan — Stories in Urdu &amp; English</p>
+      <p class="tagline-ur" dir="rtl" lang="ur">دل کو چھونے والی چھوٹی چھوٹی کہانیاں — ہر کہانی کے آخر میں ایک سبق</p>
+      <p class="byline">by Saqlain Abbas</p>
+    </header>
+
+    <main>
+      <!-- ============ HOME ============ -->
+      <section id="view-home">
+        <p class="home-intro">
+          <span class="ur" dir="rtl" lang="ur">اپنی پسند کی کہانی چنیں اور پڑھنا شروع کریں۔ ہر کہانی اردو میں ہے اور اس کا مکمل انگریزی ترجمہ بھی ساتھ دیا گیا ہے۔</span>
+          Pick a story and start reading. Every story is written in Urdu, with its full English translation one tap away.
+        </p>
+
+        <div class="cards">
+          <button class="card" type="button" data-open="story-1" aria-label="Read: Insaaf ka Tarazu — The Scale of Justice">
+            <img src="img-9b81b054.webp" alt="Illustration: a wise village elder seated between two farmers, with a sack of wheat and a balance scale" />
+            <span class="card-body">
+              <span class="card-title-ur" dir="rtl" lang="ur">انصاف کا ترازو</span>
+              <span class="card-title-en">The Scale of Justice</span>
+              <span class="card-teaser" dir="rtl" lang="ur">دو دوست، ایک بوری گندم، اور ایک بزرگ کا ایسا سوال کہ سارا جھگڑا ہی ختم ہو گیا۔</span>
+              <span class="card-read">کہانی پڑھیں · Read story</span>
+            </span>
+          </button>
+
+          <button class="card" type="button" data-open="story-2" aria-label="Read: Chhota Sa Chiragh — The Little Lamp">
+            <img src="img-de366d58.webp" alt="Illustration: an old lamp-maker handing a glowing clay lamp to a traveller on a dark rainy night" />
+            <span class="card-body">
+              <span class="card-title-ur" dir="rtl" lang="ur">چھوٹا سا چراغ</span>
+              <span class="card-title-en">The Little Lamp</span>
+              <span class="card-teaser" dir="rtl" lang="ur">ایک غریب بوڑھے نے اپنا آخری چراغ مفت دے دیا — برسوں بعد وہی روشنی ایک اسکول بن کر لوٹ آئی۔</span>
+              <span class="card-read">کہانی پڑھیں · Read story</span>
+            </span>
+          </button>
+
+          <button class="card" type="button" data-open="story-3" aria-label="Read: Darakht ki Dosti — The Tree's Friendship">
+            <img src="img-c9232b17.webp" alt="Illustration: an old man resting in the shade of a great mango tree full of ripe fruit" />
+            <span class="card-body">
+              <span class="card-title-ur" dir="rtl" lang="ur">درخت کی دوستی</span>
+              <span class="card-title-en">The Tree's Friendship</span>
+              <span class="card-teaser" dir="rtl" lang="ur">ایک بچے نے آم کا پودا لگایا اور بھول گیا — مگر درخت اسے کبھی نہیں بھولا۔</span>
+              <span class="card-read">کہانی پڑھیں · Read story</span>
+            </span>
+          </button>
+        </div>
+      </section>
+
+      <!-- ============ STORY 1 ============ -->
+      <article id="view-story-1" class="story" hidden>
+        <div class="toolbar">
+          <button class="btn" type="button" data-home>← تمام کہانیاں · All stories</button>
+          <div class="size-controls">
+            <span>Text size</span>
+            <button class="size-btn" type="button" data-size="-1" aria-label="Decrease text size">−</button>
+            <button class="size-btn" type="button" data-size="1" aria-label="Increase text size">+</button>
+          </div>
+        </div>
+
+        <img class="story-hero" src="img-9b81b054.webp" alt="Illustration: a wise village elder seated between two farmers, with a sack of wheat and a balance scale" />
+        <h2 class="story-title-ur" dir="rtl" lang="ur">انصاف کا ترازو</h2>
+        <p class="story-title-en">The Scale of Justice</p>
+
+        <div class="ur-body" dir="rtl" lang="ur">
+          <p>ایک چھوٹے سے گاؤں میں دو کسان رہتے تھے — حامد اور ساجد۔ دونوں کے کھیت ساتھ ساتھ تھے اور وہ برسوں سے اچھے دوست تھے۔ فصل کٹنے کے بعد دونوں نے اپنی گندم کی بوریاں گاؤں کے مشترکہ گودام میں رکھ دیں، تاکہ سردیوں میں ضرورت کے وقت استعمال کر سکیں۔</p>
+          <p>ایک دن حامد گودام گیا تو اسے اپنی ایک بوری کم ملی۔ اس کا دل بیٹھ گیا۔ اسی شام اس نے ساجد سے کہا: ”تم نے میری بوری اٹھا لی ہے۔“ ساجد نے قسمیں کھائیں کہ اس نے ایسا ہرگز نہیں کیا، بلکہ اس کی اپنی بوریاں بھی کچھ ہلکی لگتی ہیں۔ بات بڑھتی گئی، آوازیں اونچی ہوتی گئیں، اور برسوں کی دوستی ایک بوری گندم پر ٹوٹنے لگی۔</p>
+          <p>گاؤں والے دونوں کو بزرگ رحیم چچا کے پاس لے گئے، جن کی دانائی کی دھوم پورے علاقے میں تھی۔ سب کو یقین تھا کہ چچا ترازو منگوائیں گے، گندم تولیں گے اور سچ جھوٹ الگ کر دیں گے۔ لیکن رحیم چچا نے ترازو نہیں منگوایا۔ وہ دونوں کے درمیان آرام سے بیٹھ گئے اور نرمی سے بولے: ”میں تولنے سے پہلے صرف ایک سوال پوچھوں گا۔“</p>
+          <p>انہوں نے پہلے حامد کی طرف دیکھا: ”حامد، ذرا سوچ کر بتاؤ — اگر تم ساجد کی جگہ کھڑے ہوتے، اور الزام تم پر لگا ہوتا، تو تم کتنی گندم پر راضی ہو جاتے؟“ حامد خاموش ہو گیا۔ پھر چچا نے ساجد سے وہی سوال پوچھا: ”اور تم؟ اگر بوری تمھاری کم ہوئی ہوتی اور شک کی انگلی تم پر اٹھی ہوتی، تو تم کیا چاہتے؟“</p>
+          <p>کھیتوں کی طرف سے آتی ٹھنڈی ہوا میں دونوں کسان بہت دیر تک چپ بیٹھے رہے۔ پھر حامد نے آہستگی سے کہا: ”اگر میں اس کی جگہ ہوتا تو چاہتا کہ مجھ پر شک کرنے کے بجائے میری بات سنی جاتی... اور گندم آدھی آدھی کر لی جاتی۔“ ساجد نے سر اٹھایا اور بولا: ”میں بھی یہی چاہتا۔“</p>
+          <p>بس اتنی سی بات تھی۔ دونوں نے مل کر بوری کھولی اور گندم برابر برابر بانٹ لی۔ نہ کسی نے تولا، نہ کوئی ہارا، نہ کوئی جیتا۔ جاتے جاتے حامد نے ساجد کے کندھے پر ہاتھ رکھا اور کہا: ”چلو، کل سویرے میری فصل کٹوانے میں مدد کر دینا۔“ ساجد مسکرا دیا۔ اس دن گاؤں والوں نے جانا کہ ترازو لوہے کا نہیں ہوتا؛ اصل ترازو وہ دل ہے جو دوسرے کی جگہ کھڑا ہو کر تولے۔</p>
+        </div>
+
+        <button class="en-toggle" type="button" aria-expanded="false" data-toggle-en>
+          <span>English version</span><span class="chev" aria-hidden="true">▾</span>
+        </button>
+        <div class="en-version" hidden>
+          <h3>The Scale of Justice</h3>
+          <div class="en-body" dir="ltr" lang="en">
+            <p>In a small village there lived two farmers — Hamid and Sajid. Their fields lay side by side, and they had been good friends for years. After the harvest, both men stored their sacks of wheat in the village's shared granary, so they could use them through the winter whenever the need arose.</p>
+            <p>One day Hamid went to the granary and found one of his sacks missing. His heart sank. That same evening he said to Sajid, "You have taken my sack." Sajid swore that he had done no such thing — in fact, his own sacks felt lighter than they should. The argument grew, voices rose higher and higher, and a friendship of many years began to break over a single sack of wheat.</p>
+            <p>The villagers took both men to the elder Rahim Chacha, whose wisdom was known all over the area. Everyone was certain that Chacha would order the scales to be brought, weigh the wheat, and separate truth from falsehood. But Rahim Chacha did not ask for the scales. He sat down calmly between the two men and said gently, "Before any weighing, I will ask just one question."</p>
+            <p>He looked first at Hamid. "Hamid, think carefully and tell me — if you were standing in Sajid's place, and the blame had fallen on you, how much wheat would you have settled for?" Hamid fell silent. Then Chacha put the same question to Sajid: "And you? If your sack had gone missing and the finger of suspicion pointed at you, what would you have wanted?"</p>
+            <p>In the cool breeze drifting in from the fields, the two farmers sat in silence for a long time. Then Hamid said quietly, "If I were in his place, I would want my side to be heard instead of being suspected... and I would want the wheat divided half and half." Sajid lifted his head and said, "I would want exactly the same."</p>
+            <p>That was all it took. Together the two men opened the sack and divided the wheat equally between them. Nothing was weighed, nobody lost, and nobody won. As they were leaving, Hamid placed a hand on Sajid's shoulder and said, "Come — help me cut my crop tomorrow morning." Sajid smiled. That day the village learned that a scale is not made of iron; the true scale is a heart that weighs while standing in the other person's place.</p>
+          </div>
+        </div>
+
+        <div class="moral">
+          <p class="moral-label">سبق · The Moral</p>
+          <p class="moral-ur" dir="rtl" lang="ur">انصاف وہیں سے شروع ہوتا ہے جہاں ہم دوسرے کی جگہ کھڑے ہو کر دیکھنا سیکھ لیتے ہیں۔</p>
+          <p class="moral-en" lang="en">Justice begins when you see the other's side.</p>
+        </div>
+
+        <div class="story-nav">
+          <button class="btn" type="button" data-home>← All stories</button>
+          <button class="btn" type="button" data-open="story-2">Next story: چھوٹا سا چراغ →</button>
+        </div>
+      </article>
+
+      <!-- ============ STORY 2 ============ -->
+      <article id="view-story-2" class="story" hidden>
+        <div class="toolbar">
+          <button class="btn" type="button" data-home>← تمام کہانیاں · All stories</button>
+          <div class="size-controls">
+            <span>Text size</span>
+            <button class="size-btn" type="button" data-size="-1" aria-label="Decrease text size">−</button>
+            <button class="size-btn" type="button" data-size="1" aria-label="Increase text size">+</button>
+          </div>
+        </div>
+
+        <img class="story-hero" src="img-de366d58.webp" alt="Illustration: an old lamp-maker handing a glowing clay lamp to a traveller on a dark rainy night" />
+        <h2 class="story-title-ur" dir="rtl" lang="ur">چھوٹا سا چراغ</h2>
+        <p class="story-title-en">The Little Lamp</p>
+
+        <div class="ur-body" dir="rtl" lang="ur">
+          <p>دور دراز کے ایک گاؤں میں ایک غریب بوڑھا رہتا تھا، یعقوب بابا۔ وہ موم بتیاں اور مٹی کے چراغ بنا کر گزارا کرتا تھا۔ اس کی چھوٹی سی جھونپڑی میں نہ دولت تھی نہ فرنیچر، بس ایک چارپائی، موم کے ڈھیر اور تیار چراغوں کی ایک قطار تھی۔ گاؤں والے پیار سے کہتے تھے کہ بابا کے چراغوں کی لو سب سے زیادہ دیر جلتی ہے، کیونکہ وہ ہر چراغ میں تھوڑی سی دعا بھی رکھ دیتا ہے۔</p>
+          <p>ایک رات موسم بہت خراب تھا۔ تیز ہوا چل رہی تھی، بارش شروع ہو چکی تھی اور پورا گاؤں گہرے اندھیرے میں ڈوبا ہوا تھا۔ اچانک جھونپڑی کے دروازے پر دستک ہوئی۔ بابا نے دروازہ کھولا تو ایک مسافر کھڑا تھا — بھیگا ہوا، کانپتا ہوا، راستہ بھولا ہوا۔ اس نے کہا: ”بابا، مجھے اگلے گاؤں جانا ہے، مگر اندھیرا اتنا ہے کہ اپنا ہاتھ بھی نظر نہیں آتا۔ کیا ایک چراغ مل سکے گا؟“</p>
+          <p>یعقوب بابا نے کونے کی طرف دیکھا۔ وہاں صرف ایک چراغ بچا تھا — آخری چراغ، جو اس نے کل بازار میں بیچنے کے لیے رکھا تھا، تاکہ اس کے پیسوں سے آٹا آ سکے۔ ایک لمحے کے لیے بابا چپ رہا۔ پھر اس نے مسکرا کر چراغ اٹھایا، اسے جلایا اور مسافر کے ہاتھ میں دے دیا۔ ”لے جاؤ بیٹا،“ بابا نے کہا، ”پیسوں کی فکر نہ کرنا۔ روشنی وہی قیمتی ہوتی ہے جو اندھیرے میں کسی کے کام آئے۔“ مسافر کی آنکھوں میں آنسو آ گئے۔ وہ دعائیں دیتا ہوا رات کے اندھیرے میں چل پڑا، اور چراغ کی چھوٹی سی لو دور تک اس کے ساتھ جاتی دکھائی دی۔</p>
+          <p>وقت گزرتا گیا۔ دن مہینوں میں بدلے، مہینے سالوں میں۔ یعقوب بابا اور بوڑھا ہو گیا، کمر جھک گئی، مگر اس کے بنائے چراغ گاؤں کے گھروں میں جلتے رہے۔ وہ مسافر کبھی واپس نہ آیا، اور بات آہستہ آہستہ سب کے ذہن سے نکل گئی۔ بابا نے بھی کبھی اس رات کا ذکر کسی سے نہ کیا۔</p>
+          <p>پھر ایک دن گاؤں میں ایک امیر تاجر آیا۔ اس نے گاؤں کے بچوں کے لیے ایک چھوٹا سا خوبصورت اسکول بنوانا شروع کیا — پکی عمارت، روشن کمرے اور ایک کتب خانہ۔ چند مہینوں میں اسکول تیار ہو گیا۔ افتتاح کے دن تاجر خود یعقوب بابا کو بلانے آیا اور سب کے سامنے بولا: ”یہ وہی بوڑھا ہے جس نے برسوں پہلے ایک طوفانی رات میں مجھے اپنا آخری چراغ مفت دیا تھا۔ میں وہی بھولا ہوا مسافر ہوں۔ اس رات اس چراغ نے مجھے راستہ دکھایا تھا؛ آج میں اس گاؤں کو علم کی روشنی دینا چاہتا ہوں۔“</p>
+          <p>کتب خانے کے دروازے پر ایک تختی لگی تھی جس پر لکھا تھا: ”یعقوب کتب خانہ“۔ بوڑھے بابا کی آنکھیں بھیگ گئیں۔ اس نے کانپتی آواز میں کہا: ”بیٹا، وہ تو بس ایک چھوٹا سا چراغ تھا۔“ تاجر نے بابا کے ہاتھ تھام لیے اور بولا: ”بابا، نیکی چھوٹی یا بڑی نہیں ہوتی۔ وہ تو بس بیج ہوتی ہے — کبھی فوراً اگتی ہے، کبھی برسوں بعد، مگر اگتی ضرور ہے۔“</p>
+          <p>اس شام گاؤں کے بچے پہلی بار اپنے اسکول کے کتب خانے میں کتابیں کھولے بیٹھے تھے، اور کھڑکی سے نظر آنے والی جھونپڑی میں یعقوب بابا کا نیا چراغ جل رہا تھا — چھوٹا سا، مگر پورے گاؤں کو روشن کرنے والا۔</p>
+        </div>
+
+        <button class="en-toggle" type="button" aria-expanded="false" data-toggle-en>
+          <span>English version</span><span class="chev" aria-hidden="true">▾</span>
+        </button>
+        <div class="en-version" hidden>
+          <h3>The Little Lamp</h3>
+          <div class="en-body" dir="ltr" lang="en">
+            <p>In a far-off village there lived a poor old man, Baba Yaqub. He earned his living making candles and clay lamps. His little hut held no wealth and no furniture — just a charpai bed, piles of wax, and a row of finished lamps. The villagers used to say with affection that Baba's lamps burned the longest, because he put a small prayer into every one of them.</p>
+            <p>One night the weather turned dreadful. A fierce wind was blowing, the rain had begun, and the whole village lay drowned in deep darkness. Suddenly there was a knock at the hut's door. Baba opened it to find a traveller standing there — soaked, shivering, and lost. "Baba," he said, "I must reach the next village, but it is so dark I cannot even see my own hand. Could I have a lamp?"</p>
+            <p>Baba Yaqub looked toward the corner. Only one lamp remained there — the last lamp, which he had kept to sell in the market the next day so he could buy flour with the money. For a moment Baba was quiet. Then he smiled, picked up the lamp, lit it, and placed it in the traveller's hands. "Take it, son," he said. "Do not worry about the money. Light is only precious when it helps someone in the darkness." Tears came to the traveller's eyes. Blessing the old man again and again, he set off into the night, and the lamp's small flame could be seen travelling with him for a long way.</p>
+            <p>Time passed. Days turned into months, and months into years. Baba Yaqub grew older still, his back bent, but the lamps he made kept burning in the village homes. The traveller never returned, and slowly the memory of that night faded from everyone's mind. Baba himself never mentioned it to anyone.</p>
+            <p>Then one day a wealthy merchant came to the village. He began building a small, beautiful school for the village children — a solid building, bright rooms, and a library. Within a few months the school was ready. On the opening day the merchant himself came to fetch Baba Yaqub and said before everyone: "This is the old man who, on a stormy night years ago, gave me his last lamp for free. I am that same lost traveller. That night his lamp showed me the road; today I want to give this village the light of learning."</p>
+            <p>On the library door hung a plaque that read: "Yaqub Library." The old man's eyes filled with tears. In a trembling voice he said, "Son, it was only a little lamp." The merchant took Baba's hands and replied, "Baba, kindness is neither small nor big. It is only a seed — sometimes it sprouts at once, sometimes after many years, but it always sprouts."</p>
+            <p>That evening the village children sat in their school library opening books for the first time, and through the window they could see a new lamp burning in Baba Yaqub's hut — a little lamp, but one that lit up the whole village.</p>
+          </div>
+        </div>
+
+        <div class="moral">
+          <p class="moral-label">سبق · The Moral</p>
+          <p class="moral-ur" dir="rtl" lang="ur">چھوٹی سی نیکی کبھی ضائع نہیں جاتی؛ وہ کسی نہ کسی دن، کسی نہ کسی صورت میں لوٹ کر ضرور آتی ہے۔</p>
+          <p class="moral-en" lang="en">A small kindness is never wasted.</p>
+        </div>
+
+        <div class="story-nav">
+          <button class="btn" type="button" data-open="story-1">← Previous: انصاف کا ترازو</button>
+          <button class="btn" type="button" data-open="story-3">Next story: درخت کی دوستی →</button>
+        </div>
+      </article>
+
+      <!-- ============ STORY 3 ============ -->
+      <article id="view-story-3" class="story" hidden>
+        <div class="toolbar">
+          <button class="btn" type="button" data-home>← تمام کہانیاں · All stories</button>
+          <div class="size-controls">
+            <span>Text size</span>
+            <button class="size-btn" type="button" data-size="-1" aria-label="Decrease text size">−</button>
+            <button class="size-btn" type="button" data-size="1" aria-label="Increase text size">+</button>
+          </div>
+        </div>
+
+        <img class="story-hero" src="img-c9232b17.webp" alt="Illustration: an old man resting in the shade of a great mango tree full of ripe fruit" />
+        <h2 class="story-title-ur" dir="rtl" lang="ur">درخت کی دوستی</h2>
+        <p class="story-title-en">The Tree's Friendship</p>
+
+        <div class="ur-body" dir="rtl" lang="ur">
+          <p>دانیال جب آٹھ برس کا تھا تو ایک دن اس نے اپنے گھر کے سامنے والی گلی میں آم کا ایک چھوٹا سا پودا لگایا۔ مٹی کھودی، پودا رکھا، پانی دیا اور خوش ہو کر اماں کو بتایا: ”اماں، جب یہ بڑا ہو گا تو میں اس کے آم کھاؤں گا!“ اماں مسکرائیں: ”ضرور بیٹا، بس اس کی دیکھ بھال کرنا۔“ دانیال نے چند دن پانی دیا، پھر کھیل کود میں لگ گیا — اور پودا بھول گیا۔</p>
+          <p>مگر پودا نہیں بھولا۔ بارش آئی تو اس نے پانی پیا، دھوپ تپی تو اس نے برداشت کیا، آندھی چلی تو اس نے جڑیں اور مضبوط کر لیں۔ موسم بدلتے گئے اور وہ ننھا سا پودا آہستہ آہستہ بڑا ہونے لگا — پہلے گھٹنوں تک، پھر دانیال کے قد کے برابر، پھر اس سے بھی اونچا۔ درخت کو کسی کی یاد آنے یا نہ آنے سے کوئی فرق نہیں پڑتا تھا؛ وہ بس بڑھنا جانتا تھا۔</p>
+          <p>سال گزرتے گئے۔ دانیال بڑا ہوا، پڑھائی کے لیے شہر گیا، نوکری ملی، شادی ہوئی، بچے ہوئے۔ زندگی اسے بہت دور لے گئی۔ ادھر گلی میں وہ درخت ایک گھنا، سایہ دار پیڑ بن چکا تھا۔ گرمیوں کی تپتی دوپہروں میں مسافر اس کے سائے میں بیٹھ کر سانس لیتے، مزدور اس کے نیچے بیٹھ کر کھانا کھاتے، اور بچے اس کے گرد کھیلتے۔ جب آم پکتے تو پوری گلی کے گھر اس کے میٹھے پھل سے بھر جاتے — کسی نے پودا لگایا ہو یا نہ لگایا ہو، درخت سب کو برابر دیتا تھا۔</p>
+          <p>بہت برس بعد ایک بوڑھا آدمی لاٹھی ٹیکتا ہوا اس گلی میں آیا۔ بال سفید، چال آہستہ — یہ دانیال تھا، جو زندگی کی آخری چھٹیوں میں اپنا پرانا محلہ دیکھنے آیا تھا۔ تھک کر وہ اسی درخت کے سائے میں بیٹھ گیا۔ اوپر گھنے پتے سرسرا رہے تھے، اور شاخوں پر سونے جیسے آم لٹک رہے تھے۔ ایک پکا ہوا آم ٹپ سے اس کے قدموں کے پاس آ گرا۔</p>
+          <p>دانیال نے آم اٹھایا، درخت کے مضبوط تنے پر ہاتھ پھیرا اور اس کی آنکھیں بھر آئیں۔ وہ دل میں بولا: ”میں نے تجھے لگایا اور بھول گیا، مگر تُو نے مجھے کبھی نہیں بھلایا۔ میں اپنے راستے چلا گیا، اور تُو یہیں کھڑا سب کی خدمت کرتا رہا۔“</p>
+          <p>اس شام دانیال نے اپنے پوتے کو آم کی گٹھلی دی اور کہا: ”اسے کہیں لگا دینا۔ اور سنو — نیکی بھی ایسی ہی ہوتی ہے۔ ہم بو کر آگے بڑھ جاتے ہیں، اور وہ پیچھے بڑھتی رہتی ہے، یہاں تک کہ کبھی ایک دن اس کے سائے میں بیٹھ کر ہمیں خود حیرانی ہوتی ہے کہ یہ درخت کب کا تھا۔“</p>
+          <p>پوتے نے گٹھلی احتیاط سے جیب میں رکھ لی۔ گلی کے اوپر درخت کے پتے ہوا میں ہل رہے تھے — جیسے وہ بھی سر ہلا کر کہہ رہا ہو: لگا دو، بس لگا دو؛ بڑھنا میرا کام ہے۔</p>
+        </div>
+
+        <button class="en-toggle" type="button" aria-expanded="false" data-toggle-en>
+          <span>English version</span><span class="chev" aria-hidden="true">▾</span>
+        </button>
+        <div class="en-version" hidden>
+          <h3>The Tree's Friendship</h3>
+          <div class="en-body" dir="ltr" lang="en">
+            <p>When Daniyal was eight years old, one day he planted a little mango sapling in the street in front of his house. He dug the soil, set the plant in, watered it, and happily told his mother: "Ammi, when it grows big, I will eat its mangoes!" His mother smiled. "Of course, son — just look after it." Daniyal watered it for a few days, then got busy with his games — and forgot the sapling.</p>
+            <p>But the sapling did not forget. When the rains came, it drank; when the sun blazed, it endured; when storms blew, it gripped the earth harder with its roots. Season after season, the tiny plant slowly grew — first up to the knees, then as tall as Daniyal himself, then taller still. It made no difference to the tree whether anyone remembered it or not; it only knew how to grow.</p>
+            <p>Years went by. Daniyal grew up, went to the city to study, found work, married, and had children. Life carried him far away. Meanwhile, in that street, the sapling had become a great, leafy, shade-giving tree. On scorching summer afternoons, travellers sat in its shade to catch their breath, labourers ate their meals beneath it, and children played around it. When the mangoes ripened, every house on the street filled with its sweet fruit — whether someone had planted a tree or not, this tree gave to everyone equally.</p>
+            <p>Many years later, an old man came walking down that street, leaning on a stick. White-haired, slow-stepped — it was Daniyal, come in the last holidays of his life to see his old neighbourhood. Tired, he sat down in the shade of that very tree. Above him the thick leaves rustled, and golden mangoes hung from the branches. A ripe mango dropped with a soft thud beside his feet.</p>
+            <p>Daniyal picked up the mango, ran his hand over the tree's strong trunk, and his eyes filled with tears. In his heart he said: "I planted you and forgot you — but you never forgot me. I went my own way, and you stood right here, serving everyone."</p>
+            <p>That evening Daniyal gave his grandson a mango seed and said: "Plant this somewhere. And listen — goodness is just like this. We sow it and move on, and it keeps growing behind us, until one day we sit in its shade ourselves and wonder when this tree ever grew so tall."</p>
+            <p>The grandson carefully put the seed in his pocket. Above the street, the tree's leaves swayed in the breeze — as if it too were nodding and saying: just plant it, only plant it; growing is my work.</p>
+          </div>
+        </div>
+
+        <div class="moral">
+          <p class="moral-label">سبق · The Moral</p>
+          <p class="moral-ur" dir="rtl" lang="ur">نیکی بو دیجیے؛ وہ ہماری یاد سے کہیں زیادہ لمبی عمر پاتی ہے۔</p>
+          <p class="moral-en" lang="en">Plant goodness; it outlives memory.</p>
+        </div>
+
+        <div class="story-nav">
+          <button class="btn" type="button" data-open="story-2">← Previous: چھوٹا سا چراغ</button>
+          <button class="btn" type="button" data-home>All stories · تمام کہانیاں</button>
+        </div>
+      </article>
+    </main>
+
+    <footer>
+      <span class="ur" dir="rtl" lang="ur">اردو کہانیاں — اردو اور انگریزی میں اصل کہانیاں</span>
+      <span class="foot-by">Urdu Kahaniyan · by Saqlain Abbas</span>
+    </footer>
+
+    <script>
+      (function () {
+        var home = document.getElementById('view-home');
+        var stories = {
+          'story-1': document.getElementById('view-story-1'),
+          'story-2': document.getElementById('view-story-2'),
+          'story-3': document.getElementById('view-story-3')
+        };
+
+        function show(view) {
+          home.hidden = view !== 'home';
+          Object.keys(stories).forEach(function (key) {
+            stories[key].hidden = view !== key;
+          });
+          window.scrollTo(0, 0);
+        }
+
+        function openStory(id) {
+          if (stories[id]) {
+            show(id);
+            try { history.replaceState(null, '', '#' + id); } catch (e) {}
+          }
+        }
+
+        function goHome() {
+          show('home');
+          try { history.replaceState(null, '', location.pathname); } catch (e) {}
+        }
+
+        document.addEventListener('click', function (ev) {
+          var openBtn = ev.target.closest('[data-open]');
+          if (openBtn) { openStory(openBtn.getAttribute('data-open')); return; }
+          var homeBtn = ev.target.closest('[data-home]');
+          if (homeBtn) { goHome(); return; }
+
+          var toggle = ev.target.closest('[data-toggle-en]');
+          if (toggle) {
+            var panel = toggle.nextElementSibling;
+            var expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!expanded));
+            if (panel) panel.hidden = expanded;
+            return;
+          }
+
+          var sizeBtn = ev.target.closest('[data-size]');
+          if (sizeBtn) {
+            var step = parseInt(sizeBtn.getAttribute('data-size'), 10);
+            var root = document.documentElement;
+            var current = parseFloat(getComputedStyle(root).getPropertyValue('--read-size')) || 1.3;
+            var next = Math.min(1.9, Math.max(1.05, current + step * 0.12));
+            root.style.setProperty('--read-size', next.toFixed(2) + 'rem');
+          }
+        });
+
+        var hash = (location.hash || '').replace('#', '');
+        if (stories[hash]) show(hash);
+      })();
+    </script>
+  </body>
+</html>
