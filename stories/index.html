@@ -114,7 +114,7 @@
         gap: 1.4rem;
       }
       @media (min-width: 720px) {
-        .cards { grid-template-columns: repeat(3, 1fr); }
+        .cards { grid-template-columns: repeat(2, 1fr); }
       }
       .card {
         background: var(--surface);
@@ -373,6 +373,16 @@
               <span class="card-read">کہانی پڑھیں · Read story</span>
             </span>
           </button>
+
+          <button class="card" type="button" data-open="story-4" aria-label="Read: Sachai ka Aaina — The Mirror of Truth">
+            <img src="img-b86de095.webp" alt="Illustration: a young shepherd boy facing a wolf creeping toward his flock, while an old shepherd hurries to the rescue" />
+            <span class="card-body">
+              <span class="card-title-ur" dir="rtl" lang="ur">سچائی کا آئینہ</span>
+              <span class="card-title-en">The Mirror of Truth</span>
+              <span class="card-teaser" dir="rtl" lang="ur">ایک چرواہا لڑکا جھوٹ بول بول کر سب کا اعتبار کھو بیٹھا — پھر ایک صبح بھیڑیا سچ مچ آ گیا۔</span>
+              <span class="card-read">کہانی پڑھیں · Read story</span>
+            </span>
+          </button>
         </div>
       </section>
 
@@ -529,6 +539,57 @@
 
         <div class="story-nav">
           <button class="btn" type="button" data-open="story-2">← Previous: چھوٹا سا چراغ</button>
+          <button class="btn" type="button" data-open="story-4">Next story: سچائی کا آئینہ →</button>
+        </div>
+      </article>
+
+      <!-- ============ STORY 4 ============ -->
+      <article id="view-story-4" class="story" hidden>
+        <div class="toolbar">
+          <button class="btn" type="button" data-home>← تمام کہانیاں · All stories</button>
+          <div class="size-controls">
+            <span>Text size</span>
+            <button class="size-btn" type="button" data-size="-1" aria-label="Decrease text size">−</button>
+            <button class="size-btn" type="button" data-size="1" aria-label="Increase text size">+</button>
+          </div>
+        </div>
+
+        <img class="story-hero" src="img-b86de095.webp" alt="Illustration: a young shepherd boy facing a wolf creeping toward his flock, while an old shepherd hurries to the rescue" />
+        <h2 class="story-title-ur" dir="rtl" lang="ur">سچائی کا آئینہ</h2>
+        <p class="story-title-en">The Mirror of Truth</p>
+
+        <div class="ur-body" dir="rtl" lang="ur">
+          <p>پہاڑی کے دامن میں بسے ایک چھوٹے سے گاؤں میں ایک نوجوان چرواہا رہتا تھا — بلال، عمر کوئی بارہ برس۔ روز سویرے وہ بھیڑ بکریاں لے کر پہاڑی پر جاتا اور شام کو لوٹ آتا۔ بلال محنتی اور ہوشیار تھا، مگر اس میں ایک بری عادت تھی: وہ مزے کے لیے چھوٹے چھوٹے جھوٹ بولتا تھا۔ کبھی کہتا پہاڑی پر شیر آیا تھا، کبھی کوئی اور من گھڑت بات — اور لوگ پریشان ہو کر دوڑتے تو وہ ہنس پڑتا۔</p>
+          <p>ایک دن اس نے چلا کر پکارا: ”بھیڑیا آ گیا! بچاؤ!“ گاؤں والے لاٹھیاں اٹھائے دوڑے آئے، مگر بھیڑیں آرام سے چر رہی تھیں اور بلال کھلکھلا کر ہنس رہا تھا: ”آپ سب کتنی آسانی سے بے وقوف بن گئے!“ ایک بزرگ نے کہا: ”بیٹا، جھوٹ پر ہنسی نہیں آتی، دل دکھتا ہے۔“ اس دن کے بعد گاؤں والوں کے دل میں گرہ پڑ گئی؛ اب بلال سچ بھی کہتا تو لوگ کہتے: ”رہنے دو، یہ اس کی پرانی عادت ہے۔“</p>
+          <p>پھر ایک صبح، جب ہلکی دھند پہاڑی پر پھیلی تھی، بلال نے سچ مچ ایک بھیڑیا دیکھا — سرمئی کھال، چمکتی آنکھیں، دبے پاؤں ریوڑ کی طرف رینگتا ہوا۔ وہ زور زور سے چلایا: ”بھیڑیا! واقعی بھیڑیا آ گیا ہے! خدا کے لیے آؤ، بھیڑیں بچا لو!“ وہ چیختا رہا، گلا بیٹھ گیا، مگر کوئی نہ آیا۔ کسی نے کھڑکی سے کہا: ”وہی پرانا مذاق ہو گا؛ آج ہم نہیں جائیں گے۔“ بھیڑیں گھبرا کر بھاگنے لگیں اور بلال بے بس کھڑا روتا رہا۔</p>
+          <p>عین اسی وقت بوڑھا چرواہا رحمت بابا، جو قریب ہی بکریاں چرا رہا تھا، شور سن کر دوڑا آیا۔ اس نے لاٹھی گھمائی، للکارا اور پتھر برسائے۔ بھیڑیا گھبرا کر جھاڑیوں میں غائب ہو گیا۔ ریوڑ بچ گیا — بس بچتے بچتے۔ بلال زمین پر بیٹھ کر پھوٹ پھوٹ کر رونے لگا۔ رحمت بابا نے اس کے سر پر ہاتھ رکھا: ”بیٹا، آج بھیڑیا بھیڑوں کے پیچھے کم تھا؛ تمہارے گزشتہ جھوٹ تمہارے پیچھے زیادہ تھے۔“</p>
+          <p>اس رات بلال دیر تک جاگتا رہا۔ کمرے میں اماں کا پرانا آئینہ رکھا تھا، جس کے کونے میں ہلکی سی دراڑ تھی اور اس دراڑ سے چہرہ دو حصوں میں بٹا دکھائی دیتا تھا۔ اسے دیکھتے ہی اسے سمجھ آ گئی: سچ بھی آئینے کی طرح ہوتا ہے — برسوں کی احتیاط سے صاف رہتا ہے، مگر ایک جھوٹ کی ایک چوٹ اس میں دراڑ ڈال دیتی ہے، پھر کوئی اس میں اپنا چہرہ صاف نہیں دیکھ پاتا۔ اس رات بلال نے عہد کیا: اب وہ صرف سچ بولے گا۔</p>
+          <p>اگلے دن سے بلال بدل گیا۔ چھوٹی چھوٹی باتوں میں بھی وہ سچ بولتا — بھیڑ کھو جاتی تو صاف بتا دیتا، دیر ہوتی تو اصل وجہ بیان کر دیتا۔ شروع میں لوگ شک سے دیکھتے رہے، مگر ہفتے مہینوں میں بدلے اور مہینے موسموں میں۔ کئی مہینوں بعد ایک شام اس نے خبر دی کہ نہر کا پانی بڑھ رہا ہے، تو سارا گاؤں بغیر سوچے اٹھ کھڑا ہوا۔ بلال کی آنکھیں بھر آئیں — اعتبار ایک دن میں واپس نہیں آتا؛ وہ سچ کی چھوٹی چھوٹی بوندوں سے، دن بہ دن، دوبارہ بنتا ہے۔</p>
+        </div>
+
+        <button class="en-toggle" type="button" aria-expanded="false" data-toggle-en>
+          <span>English version</span><span class="chev" aria-hidden="true">▾</span>
+        </button>
+        <div class="en-version" hidden>
+          <h3>The Mirror of Truth</h3>
+          <div class="en-body" dir="ltr" lang="en">
+            <p>In a small village at the foot of a hill there lived a young shepherd — Bilal, about twelve years old. Every morning he took the sheep and goats up the hill, and every evening he brought them home. Bilal was hardworking and clever, but he had one bad habit: he told small lies just for fun. Sometimes he swore a lion had come to the hill, sometimes he invented something else — and when people came running, worried, he would burst out laughing.</p>
+            <p>One day he shouted from the hill: "A wolf! A wolf has come! Help!" The villagers came running with sticks, but the sheep were grazing peacefully and Bilal was roaring with laughter: "You all got fooled so easily!" An elder said, "Son, a lie does not bring laughter; it brings hurt." From that day a knot tied itself in the villagers' hearts; now even when Bilal told the truth, people would say, "Let it go — that is just his old habit."</p>
+            <p>Then one morning, when a light mist lay over the hill, Bilal really did see a wolf — grey fur, shining eyes, creeping quietly toward the flock. He shouted: "A wolf! There really is a wolf! Come, for God's sake — save the sheep!" He screamed until his throat gave out, but no one came. Someone called from a window, "It will be the same old joke; we are not going today." The sheep scattered in panic, and Bilal stood there helpless, crying.</p>
+            <p>At that very moment old Rahmat Baba, grazing his goats nearby, heard the noise and came running. He swung his staff, shouted, and hurled stones. Startled, the wolf vanished into the bushes. The flock was saved — but only just. Bilal sat on the ground and sobbed. Rahmat Baba placed a hand on his head: "Son, today the wolf was barely after the sheep; it was your past lies that were after you."</p>
+            <p>That night Bilal lay awake for a long time. In his room stood his mother's old mirror, with a fine crack in one corner, and through that crack a face appeared split in two. Looking at it, he suddenly understood: truth is like a mirror — kept with years of care, it stays clear, but one blow from a single lie cracks it, and then no one can see their face in it clearly again. That night Bilal promised: from now on he would speak only the truth.</p>
+            <p>From the next day, Bilal was a changed boy. He told the truth even in the smallest things — if a sheep was lost, he said so plainly; if he was late, he gave the real reason. At first people still watched him with suspicion, but weeks turned into months, and months into seasons. Many months later, one evening he reported that the stream's water was rising — and the whole village rose without a second thought. Bilal's eyes filled with tears: trust does not return in a day; it is built again, day by day, from small drops of truth.</p>
+          </div>
+        </div>
+
+        <div class="moral">
+          <p class="moral-label">سبق · The Moral</p>
+          <p class="moral-ur" dir="rtl" lang="ur">اعتماد برسوں میں بنتا ہے اور ایک لمحے میں ٹوٹ جاتا ہے — اپنی سچائی کی حفاظت کرو۔</p>
+          <p class="moral-en" lang="en">Trust is built in years and broken in a moment — guard your truth.</p>
+        </div>
+
+        <div class="story-nav">
+          <button class="btn" type="button" data-open="story-3">← Previous: درخت کی دوستی</button>
           <button class="btn" type="button" data-home>All stories · تمام کہانیاں</button>
         </div>
       </article>
@@ -545,7 +606,8 @@
         var stories = {
           'story-1': document.getElementById('view-story-1'),
           'story-2': document.getElementById('view-story-2'),
-          'story-3': document.getElementById('view-story-3')
+          'story-3': document.getElementById('view-story-3'),
+          'story-4': document.getElementById('view-story-4')
         };
 
         function show(view) {
